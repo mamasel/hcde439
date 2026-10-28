@@ -11,8 +11,8 @@
   <body>
     <h1>Selome Girma's Assignment 2!</h1>
     
-    <div schematic="header">
-      <img src="Schematic.png" />
+    <div **schematic**="header">
+      <img src="Schematic.png" width="300" />
       <p>Schematic</p>
       <p> As an employee at the toy company,
         I propose a "control traffic" game. This games includes
@@ -23,7 +23,7 @@
     </div>
 
 
-    <div circuit="header">
+    <div **circuit**="header">
       <img src="red-panda.jpg" />
       <p>Circuit</p>
       <p>I have 3 LEDs, green, yellow and red. Each represent a traffic light
@@ -34,17 +34,15 @@
     </div>
 
 
-    <div firmware="header">
+    <div **firmware**="header">
       <p>These are three snippets of my wireframe</p>
 
-      <img src="Snippet 1.png" />
-      <img src="Snippet 2.png" />
-      <img src="red-panda.jpg" />
-
+      <img src="Snippet 1.png" width="300" />
+      <img src="Snippet 2.png" width="300" />
     </div>
 
 
-    <div Operation="header">
+    <div **Operation**="header">
       <video width="600" controls>
         <source src="Circut.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
@@ -53,18 +51,18 @@
 
     </div>
 
-    <div Additional Questions="header">
-      <p>1: Draw a chart where the X axis is time and the Y axis is voltage. Draw 3 lines representing the voltage across an LED with analogWrite(led, 64), analogWrite(led, 128), and analogWrite(led, 255).</p>
-      <img src="duty cycle.png" />
-      <p> 2:  If all your LEDs were on simultaneously, what would the total current draw be? Is this above or below the total Arduino current draw limits? If all your LEDs were on, how long would your 
-        circuit run if powered by a 1200 mAh battery?</p>
+    <div **Additional Questions**="header">
+      <p>**1: Draw a chart where the X axis is time and the Y axis is voltage. Draw 3 lines representing the voltage across an LED with analogWrite(led, 64), analogWrite(led, 128), and analogWrite(led, 255).**</p>
+      <img src="duty cycle.png" width="300" />
+      <p> **2:  If all your LEDs were on simultaneously, what would the total current draw be? Is this above or below the total Arduino current draw limits? If all your LEDs were on, how long would your 
+        circuit run if powered by a 1200 mAh battery?**</p>
       <p> Simultanuesly it would be: I LED = 4 x 20 mA = 80mA</p>
       <p> Each LED draws 20 mA, which is within the commonly recommended operating current per Arduino Uno I/O pin.</p>
       <p>The four LEDs draw 80 mA combined, which is below the ATmega328P's 200 mA absolute maximum for the microcontroller's supply pins.</p>
       <p>The Arduino itself also consumes current, so its total draw will be higher than 80 mA.</p>
-      <p>   3: Measure and record the actual voltage across one of your LEDs when it's on. How does this compare to the theoretical forward voltage for your LED color?</p>
+      <p>  ** 3: Measure and record the actual voltage across one of your LEDs when it's on. How does this compare to the theoretical forward voltage for your LED color? **</p>
         <p></p>
-      <p>   4: Did you use AI tools in completing this assignment? If yes, please provide details on how/when, as well as a brief reflection. If no, you can either leave this question blank, or provide other information if you'd like.</p>
+      <p>  ** 4: Did you use AI tools in completing this assignment? If yes, please provide details on how/when, as well as a brief reflection. If no, you can either leave this question blank, or provide other information if you'd like. **</p>
         <p> I used ai to help me with the debuging arduino</p>
     </div>
   </body>
