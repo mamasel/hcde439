@@ -1,49 +1,153 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="Selome Girma" content="width=device-width, maximum-scale=1.0" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Selome's HCDE 439 Physical Computing Page!</title>
+  <title>Selome's HCDE 439 Page!</title>
 
-    <link href="style.css" rel="stylesheet" />
-  </head>
-  <body>
-    <h1>Selome's HCDE 439 Physical Computing Page!</h1>
+  <style>
+    body {
+      background-color: #f7f5ef;
+      font-family: Arial, sans-serif;
+      color: #3e5142;
+      margin: 0;
+      padding: 30px;
+    }
 
-    <div class="header">
-      <img src="Selome.jpg" />
-      <p>
-        My name is Selome! I'm an HCDE major and definitely not a red
-        panda. I am a senior in HCDE and minoring in economics. Fun fact 
-        I have studied abroad 3 times during my time at UW. 
-      </p>
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #526b55;
+    }
+
+    .header {
+      background-color: #e5eadf;
+      border-radius: 15px;
+      padding: 25px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      max-width: 800px;
+      margin: 30px auto 50px;
+    }
+
+    .header img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .header p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    h2 {
+      color: #526b55;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .assignment {
+      background-color: white;
+      width: 250px;
+      padding: 15px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 3px 10px #00000010;
+    }
+
+    .assignment img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .assignment a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .assignment a:hover {
+      color: #b77b5b;
+    }
+
+    .assignment p {
+      color: #777;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #999;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Selome's HCDE 439 Page! ✿</h1>
+
+  <div class="header">
+    <img src="Selome.jpg" alt="Selome">
+
+    <p>
+      Hi! My name is Selome! I'm an HCDE major and definitely
+      not a red panda. I am a senior in HCDE and minoring in
+      economics. Fun fact: I have studied abroad 3 times
+      during my time at UW! ✈️
+    </p>
+  </div>
+
+  <h1>My Assignments</h1>
+
+  <div class="grid">
+
+    <div class="assignment">
+      <a href="a1.html">
+        <h2>Assignment 1: Blink!</h2>
+        <img src="red-panda.jpg" alt="Red panda">
+      </a>
+      <p>My first physical computing project!</p>
     </div>
 
-    <div class="grid">
-      <div class="assignment">
-        <a href="a1.html">
-          <h2>Assignment 1: Blink!</h2>
-          <img src="red-panda.jpg" />
-        </a>
-        <p>Assignment 1 was a panda!</p>
-      </div>
-
-      <div class="assignment">
-        <a href="a2.html">
-          <h2>Assignment 2: Fade!</h2>
-          <img src="red-panda.jpg" />
-        </a>
-        <p>Assignment 2 was a panda!</p>
-      </div>
-
-      <div class="assignment">
-        <a href="a2.html">
-          <h2>Assignment 2: Fade!</h2>
-          <img src="red-panda.jpg" />
-        </a>
-        <p>Assignment 2 was a panda!</p>
-      </div>
+    <div class="assignment">
+      <a href="a2.html">
+        <h2>Assignment 2: Fade!</h2>
+        <img src="red-panda.jpg" alt="Red panda">
+      </a>
+      <p>Exploring LEDs and fading!</p>
     </div>
-  </body>
+
+    <div class="assignment">
+      <a href="a3.html">
+        <h2>Assignment 3: Input Output!</h2>
+        <img src="red-panda.jpg" alt="Red panda">
+      </a>
+      <p>Learning about inputs and outputs!</p>
+    </div>
+
+  </div>
+
+  <footer>
+    Made with ♡ by Selome | HCDE 439 | UW
+  </footer>
+
+</body>
 </html>
