@@ -1,68 +1,233 @@
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Selome Girma's HCDE 439 Physical Computing Page!</title>
+  <title>Selome's HCDE 439 - Assignment 2</title>
 
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <h1>Selome Girma's Assignment 2!</h1>
-    
-    <div **schematic**="header">
-      <img src="Schematic.png" width="600" />
-      <p>Schematic</p>
-      <p> As an employee at the toy company,
-        I propose a "control traffic" game. This games includes
-      pressing a black button that colors the colors green, yellow 
-      and red. At each push the color changes from Green to yellow to Red. 
-      Once the button is pressed the color is faded to brightness this is 
-      also meant to be a timer for the cars</p>
-    </div>
+  <style>
+    body {
+      background-color: #f7f5ef;
+      font-family: Arial, sans-serif;
+      color: #3e5142;
+      margin: 0;
+      padding: 30px;
+      line-height: 1.6;
+    }
 
+    h1 {
+      text-align: center;
+      color: #526b55;
+      font-size: 36px;
+    }
 
-    <div **circuit**="header">
-      <p>Circuit</p>
-      <p>I have 3 LEDs, green, yellow and red. Each represent a traffic light
-        there is a resistor on each of them of 220V, each color also connects to ~9, ~10, ~11.
-        I used these pins becuase they support PWM, which let's us control how bright each color is.
-        GND is connected to the 0V supply, green, yellow and red are connect to GND through that supply. </p>
+    h2 {
+      color: #526b55;
+      border-bottom: 2px solid #e5eadf;
+      padding-bottom: 8px;
+    }
 
-    </div>
+    .section {
+      background-color: white;
+      max-width: 850px;
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px #00000010;
+    }
 
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 15px auto;
+    }
 
-    <div **firmware**="header">
-      <p>These are three snippets of my wireframe</p>
+    video {
+      max-width: 100%;
+      display: block;
+      margin: 15px auto;
+      border-radius: 10px;
+    }
 
-      <img src="Snippet 1.png" width="600" />
-      <img src="Snippet 2.png" width="600" />
-    </div>
+    p {
+      color: #687368;
+    }
 
+    .label {
+      color: #a0ad92;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
 
-    <div **Operation**="header">
-      <video width="600" controls>
-        <source src="Circut.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-      <p>This video shows how the "control traffic" toy works.</p>
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #999;
+      font-size: 13px;
+    }
 
-    </div>
+    a {
+      color: #b77b5b;
+      text-decoration: none;
+    }
 
-    <div __Additional Questions__="header">
-      <p>**1: Draw a chart where the X axis is time and the Y axis is voltage. Draw 3 lines representing the voltage across an LED with analogWrite(led, 64), analogWrite(led, 128), and analogWrite(led, 255).**</p>
-      <img src="duty cycle.png" width="600" />
-      <p> **2:  If all your LEDs were on simultaneously, what would the total current draw be? Is this above or below the total Arduino current draw limits? If all your LEDs were on, how long would your 
-        circuit run if powered by a 1200 mAh battery?**</p>
-      <p> Simultanuesly it would be: I LED = 4 x 20 mA = 80mA</p>
-      <p> Each LED draws 20 mA, which is within the commonly recommended operating current per Arduino Uno I/O pin.</p>
-      <p>The four LEDs draw 80 mA combined, which is below the ATmega328P's 200 mA absolute maximum for the microcontroller's supply pins.</p>
-      <p>The Arduino itself also consumes current, so its total draw will be higher than 80 mA.</p>
-      <p>  ** 3: Measure and record the actual voltage across one of your LEDs when it's on. How does this compare to the theoretical forward voltage for your LED color? **</p>
-        <p></p>
-      <p>  ** 4: Did you use AI tools in completing this assignment? If yes, please provide details on how/when, as well as a brief reflection. If no, you can either leave this question blank, or provide other information if you'd like. **</p>
-        <p> I used ai to help me with the debuging arduino</p>
-    </div>
-  </body>
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Assignment 2: Fade! ✿</h1>
+  <p style="text-align:center;">
+    HCDE 439 · Physical Computing · Selome Girma
+  </p>
+
+  <div class="section">
+    <span class="label">01 · DESIGN</span>
+    <h2>Project Schematic</h2>
+
+    <img src="Schematic.png" alt="Project schematic">
+
+    <p>
+      As an employee at a toy company, I propose a "control traffic"
+      game. This game includes pressing a black button that changes
+      the colors green, yellow, and red. At each push, the color
+      changes from green to yellow to red. Once the button is pressed,
+      the color fades in brightness. This is also meant to act as
+      a timer for the cars.
+    </p>
+  </div>
+
+  <div class="section">
+    <span class="label">02 · HARDWARE</span>
+    <h2>Circuit</h2>
+
+    <p>
+      I have 3 LEDs: green, yellow, and red. Each represents a
+      traffic light. There is a 220-ohm resistor on each of them.
+      Each color also connects to pins ~9, ~10, and ~11.
+      I used these pins because they support PWM, which allows
+      us to control how bright each color is.
+    </p>
+
+    <p>
+      GND is connected to the 0V supply. The green, yellow,
+      and red LEDs connect to GND through that supply.
+    </p>
+  </div>
+
+  <div class="section">
+    <span class="label">03 · PROGRAMMING</span>
+    <h2>Firmware</h2>
+
+    <p>Here are three snippets of my code:</p>
+
+    <img src="Snippet 1.png" alt="Firmware snippet 1">
+
+    <img src="Snippet 2.png" alt="Firmware snippet 2">
+  </div>
+
+  <div class="section">
+    <span class="label">04 · DEMONSTRATION</span>
+    <h2>How It Works</h2>
+
+    <video controls>
+      <source src="Circut.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <p>
+      This video shows how my "control traffic" toy works.
+      It demonstrates how the button changes the traffic
+      light colors and controls their brightness.
+    </p>
+  </div>
+
+  <div class="section">
+    <span class="label">05 · REFLECTION</span>
+    <h2>Additional Questions</h2>
+
+    <h3>1. PWM and Voltage</h3>
+
+    <p>
+      Draw a chart where the X axis is time and the Y axis is
+      voltage. Draw 3 lines representing the voltage across an
+      LED with analogWrite(led, 64), analogWrite(led, 128),
+      and analogWrite(led, 255).
+    </p>
+
+    <img src="duty cycle.png" alt="PWM duty cycle chart">
+
+    <h3>2. Total Current Draw</h3>
+
+    <p>
+      If all your LEDs were on simultaneously, what would the
+      total current draw be? Is this above or below the total
+      Arduino current draw limits? If all your LEDs were on,
+      how long would your circuit run if powered by a 1200 mAh battery?
+    </p>
+
+    <p>
+      Simultaneously, it would be:
+      I LED = 4 × 20 mA = 80 mA.
+    </p>
+
+    <p>
+      Each LED draws 20 mA, which is within the commonly
+      recommended operating current per Arduino Uno I/O pin.
+    </p>
+
+    <p>
+      The four LEDs draw 80 mA combined, which is below the
+      ATmega328P's 200 mA absolute maximum for the microcontroller's
+      supply pins.
+    </p>
+
+    <p>
+      The Arduino itself also consumes current, so its total
+      draw will be higher than 80 mA.
+    </p>
+
+    <h3>3. LED Voltage Measurement</h3>
+
+    <p>
+      Measure and record the actual voltage across one of your
+      LEDs when it is on. How does this compare to the theoretical
+      forward voltage for your LED color?
+    </p>
+
+    <p>
+      <!-- Add your voltage measurement and comparison here. -->
+    </p>
+
+    <h3>4. AI Tools</h3>
+
+    <p>
+      Did you use AI tools in completing this assignment?
+      If yes, provide details on how and when, as well as a
+      brief reflection.
+    </p>
+
+    <p>
+      I used AI to help me debug the Arduino code.
+    </p>
+
+  </div>
+
+  <footer>
+    Made with ♡ by Selome | HCDE 439 | UW
+    <br>
+    <a href="index.html">← Back to Homepage</a>
+  </footer>
+
+</body>
 </html>
